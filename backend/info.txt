@@ -1,0 +1,45 @@
+========== MÉTODOS HTTP
+ 
+GET: Buscar/listar uma informação no backend
+POST: Criar uma informação no backend
+PUT: Alterar uma informação no backend
+DELETE: Deletar uma informação no backend
+
+========== TIPOS DE PARÂMETROS
+
+Query Params: parâmetros nomeados enviados na rota após o "?" (Usado em filtros, paginação etc...)
+app.get('/users?name=Matheus&evento=Omnistack)
+const params = request.query;
+console.log(params);
+
+Routes Params: parâmetros utilizados para identificar recursos (Usado quando precisar exibir um unico "usuario")
+app.get('users/:id')
+const params = request.params
+console.log(params);
+
+Request Body: é o corpo da requisição, é utilizado para criar ou alterar recursos
+Converter body request para json
+app.use(express.json());
+
+app.post('users/')
+const body = request.body;
+console.log(body);
+
+========== BANCO DE DADOS
+
+SQL: MySQL, SQLite, PostgreeSQL, Oracle
+NoSQL: MongoDB, CouchDB etc..
+
+Driver: SELECT * FROM users
+Query Builder: table('users).select('*').where()..
+
+Query builder que vamos usar é knex (knexjs.org)
+npm install knex
+
+Instalar também o driver
+npm install sqlite3
+
+npx knex init
+
+
+
